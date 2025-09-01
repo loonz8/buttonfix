@@ -1,0 +1,6 @@
+# Common
+* text = auto
+# Unix
+/gradlew    text eol=lf
+# Windows
+*.bat       text eol=crlf
