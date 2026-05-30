@@ -1,0 +1,14 @@
+renamer.classes(tasks.named("jar", Jar).get()) {
+    map.from minecraft.dependency.toSrgFile
+}
+
+tasks.register("cleanupJar") {
+    dependsOn("renameJar")
+    doLast {
+        def baseJar = tasks.named("jar", Jar).get().archiveFile.get().asFile
+        def renamedJar = new File(baseJar.parentFile, baseJar.name.replace(".jar", "-renamed.jar"))
+        baseJar.delete()
+        renamedJar.renameTo(baseJar)
+    }
+}
+tasks.named("build").configure { dependsOn("cleanupJar") }

@@ -1,15 +1,6 @@
-# idea
-out
-*.ipr
-*.iws
-*.iml
-.idea/*
-!.idea/scopes
-
-# gradle
-build
-.gradle
-
-# other
-run
-runs
+.idea/
+**/build/
+**/.gradle/
+**/run/
+**/runs/
+**/.DS_Store

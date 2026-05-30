@@ -1,0 +1,13 @@
+plugins {
+    id "net.minecraftforge.gradle" version "${forgegradle_version}"
+    id "net.minecraftforge.renamer" version "${renamer_version}"
+    id "forge-common-conventions"
+    id "renamer-common-conventions"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(java_version)
+
+sourceSets.main {
+    java.srcDir rootProject.file("forge/1.19.4-1.20.4/versions/1.19.4-1.20.2/src/main/java")
+    resources.srcDir rootProject.file("forge/shared/resources")
+}

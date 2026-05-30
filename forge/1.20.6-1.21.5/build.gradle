@@ -1,0 +1,7 @@
+plugins {
+    id "net.minecraftforge.gradle" version "${forgegradle_version}"
+    id "forge-common-conventions"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(java_version)
+sourceSets.main.resources.srcDir parent.project.file("shared/resources")

@@ -1,0 +1,18 @@
+plugins {
+    id "java"
+}
+
+def versionPropsPath = "versions/${active_version}/version.properties"
+def versionPropsFile = file(versionPropsPath)
+if (versionPropsFile.exists()) {
+    Properties versionProps = new Properties()
+    versionPropsFile.withInputStream { versionProps.load(it) }
+    versionProps.each { k, v -> ext.set(k as String, v) }
+} else {
+    throw new GradleException("Version properties file not found at path: ${versionPropsPath}") as Throwable
+}
+
+sourceSets.main {
+    java.srcDir "versions/${active_version}/src/main/java"
+    resources.srcDir parent.project.file("shared/resources")
+}

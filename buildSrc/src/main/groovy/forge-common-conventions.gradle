@@ -1,0 +1,31 @@
+plugins {
+    id "multiloader-common-conventions"
+}
+
+sourceSets.each {
+    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
+}
+
+expandProps.put("forge_version_range", forge_version_range)
+
+minecraft {
+    runs {
+        register("client") {
+            systemProperty "eventbus.api.strictRuntimeChecks", "true"
+            jvmArgs "-XstartOnFirstThread"
+        }
+    }
+}
+
+repositories {
+    minecraft.mavenizer(it)
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    mavenCentral()
+}
+
+dependencies {
+    implementation minecraft.dependency("net.minecraftforge:forge:$minecraft_version-$forge_version")
+}

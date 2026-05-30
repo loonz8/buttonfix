@@ -1,0 +1,9 @@
+plugins {
+    id "net.minecraftforge.gradle" version "${forgegradle_version}"
+    id "net.minecraftforge.renamer" version "${renamer_version}"
+    id "multiversion-common-conventions"
+    id "forge-common-conventions"
+    id "renamer-common-conventions"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(java_version)
