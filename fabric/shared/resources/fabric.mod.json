@@ -9,7 +9,9 @@
     "icon": "${mod_icon}",
     "environment": "client",
     "entrypoints": {
-        "client": ["io.github.vv22003.buttonfix.ButtonFix"]
+        "client": [
+            "io.github.loonz8.buttonfix.ButtonFix"
+        ]
     },
     "depends": {
         "fabricloader": "*",
